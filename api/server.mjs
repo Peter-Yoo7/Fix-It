@@ -91,7 +91,7 @@ const UserType = {
  * @return {object} 200 if user
  * @return {object} 
  */
-app.post('/signup', 
+app.post('/api/signup', 
     [    
         //expval.body('email').trim().isString().isLength({ min: 3, max: 16 }).withMessage("email should be 3 to 16 chars"),
         expval.body('password').isString().isLength({ min: 8, max: 32 }).withMessage("password must be at least 8 chars"),
@@ -153,7 +153,7 @@ app.post('/signup',
         }
 });
 
-app.get('/test/users', async (req, res) => {
+app.get('/api/test/users', async (req, res) => {
     try {
         const users = await User.find(); // Fetch all users from the User model
         res.json(users); // Respond with the list of users in JSON format
@@ -163,7 +163,7 @@ app.get('/test/users', async (req, res) => {
     }
 });
 
-app.post('/signin', 
+app.post('/api/signin', 
     [
         //expval.body('email').trim().isString().isLength({ min: 3, max: 16 }),
         expval.body('password').isString().isLength({ min: 8, max: 32 }).withMessage("password must be at least 8 chars"),

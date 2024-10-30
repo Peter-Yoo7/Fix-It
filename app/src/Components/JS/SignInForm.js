@@ -49,7 +49,7 @@ function SignInForm({resetLogin,settersignedin, setAuth, resetAuth}) {
 
         e.preventDefault();
         try {
-            const response = await fetch('/signin', {
+            const response = await fetch('/api/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
