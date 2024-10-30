@@ -1,0 +1,19 @@
+{
+    "builds": [
+      {
+        "src": "api/server.mjs",
+        "use": "@vercel/node",
+        "config": { "includeFiles": ["models/**"] }
+      },
+      {
+        "src": "app/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "app/build" }
+      }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "api/server.mjs" },
+      { "src": "/(.*)", "dest": "app/build/$1" }
+    ]
+  }
+  
