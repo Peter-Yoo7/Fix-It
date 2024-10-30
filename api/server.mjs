@@ -29,7 +29,9 @@ app.use(
 );
 
 app.use(cors({
-    origin: 'http://localhost:'+process.env.PORT
+    origin: ['http://localhost:' + process.env.PORT, 'https://fix-it-eta.vercel.app'], // Allow both localhost and Vercel frontend
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true // Allow cookies and sessions
 }));
 
 app.use(function (req, res, next) {
