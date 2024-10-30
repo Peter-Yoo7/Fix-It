@@ -29,7 +29,7 @@ app.use(
 );
 
 app.use(cors({
-    origin: ['http://localhost:' + process.env.PORT, 'https://fix-it-eta.vercel.app'], // Allow both localhost and Vercel frontend
+    origin: ['http://localhost:' + 3000, 'https://fix-it-eta.vercel.app'], // Allow both localhost and Vercel frontend
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // Specify allowed HTTP methods
     credentials: true // Allow cookies and sessions
 }));
@@ -219,7 +219,7 @@ app.post('/signin',
     
 });
 
-app.get("/signout/", isAuthenticated, function (req, res, next) {
+app.get("/api/signout/", isAuthenticated, function (req, res, next) {
 	req.session.destroy();
 	res.setHeader(
 		"Set-Cookie",
